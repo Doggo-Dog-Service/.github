@@ -19,8 +19,6 @@ Links do projeto:
 -   Backend: [Repositório](github.com/marcoandre/pi-backend) e [Publicação](https://pi-backend.herokuapp.com/)
 -   Frontend: [Repositório](github.com/marcoandre/pi-frontend) e [Publicação](https://pi-frontend.herokuapp.com/)
 
-
-
 # 1. Desenvolvimento
 
 **1.1 Modelo de Sistema**
@@ -44,26 +42,26 @@ Um dos integrantes da equipe teve contato com uma pessoa que trabalha na área d
 
 # 2. Situação Problema
 
-*(Nessa parte a equipe deve descrever a situação problema que será resolvida pelo sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.)*
+O mercado de pet no Brasil é um dos maiores do mundo e vem crescendo muito ao longo dos anos, aumentando o número de tutores que consideram o seus pets como membro da família. Dentro desse contexto, muitas pessoas, na maioria autônomas, vêm trabalhando com serviços de pet como o Dog Walking e não há nenhuma plataforma que faça o registro desses serviços. Pensando nisso, surge a Doggo - Dog Service, uma empresa de prestação de serviços voltados exclusivamente para cães, fundada em 2026 na região Norte de Santa Catarina. A empresa conta atualmente com três funcionários, fundadores da empresa, que possuem um único foco: transformar os passeios do seu pet com tecnologia, tornando-os mais seguros, confiáveis e gerando empregos tanto para quem já atua na área de Dog Walking, como para quem ainda é novato.
 
-![Ciclo da Venda](docs/ciclo_da_venda.webp "Ciclo da Venda")
+Atualmente, toda a operação de serviços relacionada a pets, principalmente o Dog Walking, é feita de forma descentralizada. Os tutores que desejam contratar um serviço geralmente têm que seguire esses passos:
+- Entrar em contato com o prestador do serviço pessoalmente via Whatsapp ou qualquer outro meio;
+- Esperar uma resposta para poder ver os horários e preços disponíveis;
+- Escolher um horário;
+- Esperar novamente a confirmação.
 
-Descrevem o que acontece atualmente na empresa em um contexto global,
-abordando o funcionamento da empresa como um todo, não apenas os “problemas” que lá ocorrem.
+Esse ciclo gera repetitividade e retarda o serviço. Fazendo com que muitas vezes o cliente nem consiga concluir o agendamento do serviço ou se depare com preços inacessíveis e acabe desistindo, gerando prejuízo de tempo tanto para o tutor, tanto para o prestador.
 
-Sabendo disso, seu papel é **detalhar o funcionamento da empresa escolhida na
-atualidade, ou seja, antes de seu novo software**, usando como base a situação que passamos, mas aprofundando os detalhes de como as coisas acontecem.
+Em outra análise, vimos a falta de um software que registre o serviço do início ao fim. Como o processo de contratação dos serviços geralmente é muito pessoal, deixando muitas vezes o cliente inseguro em relação ao serviço. Em uma contratação de serviço, como o próprio nome retrata, existe um contrato, mas levando em conta que o pet não consegue dar um feedback de como foi o serviço, não se tem um registro legal das ações ocorridas durante o serviço.
 
--   Pesquise sobre empresas do ramo escolhido
-    para entender como funcionam;
--   Aproveite seus conhecimentos previamente adquiridos na área da empresa que escolheu, se houver;
--   Simule uma situação real. Lembre-se que são propostas com empresas fictícias, sendo assim, você terá que tomar certas decisões sobre como a empresa funciona em relação às coisas que não estão definidas no documento base (por exemplo, no caso da padaria, dizemos que seu Genival contratou mais funcionários, mas saber quantos e o que fazem pode ser relevante para o software), então tente “visualizar” a empresa funcionando, como se você estivesse lá acompanhando o dia-a-dia;
-
-Seguindo essas dicas, você deve ser capaz de descrever o dia-a-dia da empresa selecionada. E para ajudar na organização do texto, indicamos uma abordagem em 3 etapas:
-
--   **Introdução**: comece com um parágrafo apresentando a empresa (nome, o que faz, tempo de existência, o dono, funcionários, etc);
--   **Situação-problema**: Aborde em detalhes como a empresa funciona, procurando seguir uma ordem lógica dos acontecimentos e organizando parágrafos diferentes para cada coisa diferente que for explicar (como faria em uma redação);
--   **Conclusão**: tenha um parágrafo de conclusão focando nos problemas que você notou dentro da situação problema analisada e aponte brevemente como um software poderia ajudar a resolvê-los.
+Com isso a Dog - Dog Service irá oferecer tudo isso em um único software. O site da Doggo terá como objetivo a união de vários prestadores de serviço para que os clientes possam contratá-los, incluindo Dog Walkers, Dog Sitters e prestadores de Dog Boarding. Para a solução dos problemas citados, o sistema contará com:
+- Preço de cada prestador claro e direto;
+- Agenda disponível para o cliente solicitar ao prestador, reduzindo o processo de contratação;
+- Chat direto entre cliente e prestador;
+- Pagamento feito e registrado através do software;
+- Diário de serviço: uma aba com fotos e descrição de como foi o serviço e como o pet estava naquele momento;
+- Rastreamento em tempo real do serviço ( somente no Dog Walking );
+- Acesso ao histórico de serviços para cliente e prestador de maneira clara e segura.
 
 # 3. Descrição da proposta
 
@@ -595,6 +593,3 @@ entendimento).
 ![Identificando a fronteira do sistema](img/dcu_identificando_a_fronteira_do_sistema.png "Identificando a fronteira do sistema")
 
 ---
-
-
-
