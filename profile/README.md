@@ -39,10 +39,14 @@ O sistema irá filtrar as localização do profissionais para entregar ao client
 **1.3 Motivo da Escolha**
 
 Um dos integrantes da equipe teve contato com uma pessoa que trabalha na área de Dog Walking. A partir disso pensamos em deesenvolver esse sistema, não só para essa pessoa, mas para todos os que trabalham com a área ou com alguma que englobe o Dog Service (serviços para cachorros).
-
+****
 # 2. Situação Problema
 
+**A Empresa**
+
 O mercado de pet no Brasil é um dos maiores do mundo e vem crescendo muito ao longo dos anos, aumentando o número de tutores que consideram o seus pets como membro da família. Dentro desse contexto, muitas pessoas, na maioria autônomas, vêm trabalhando com serviços de pet como o Dog Walking e não há nenhuma plataforma que faça o registro desses serviços. Pensando nisso, surge a Doggo - Dog Service, uma empresa de prestação de serviços voltados exclusivamente para cães, fundada em 2026 na região Norte de Santa Catarina. A empresa conta atualmente com três funcionários, fundadores da empresa, que possuem um único foco: transformar os passeios do seu pet com tecnologia, tornando-os mais seguros, confiáveis e gerando empregos tanto para quem já atua na área de Dog Walking, como para quem ainda é novato.
+
+**O Problema**
 
 Atualmente, toda a operação de serviços relacionada a pets, principalmente o Dog Walking, é feita de forma descentralizada. Os tutores que desejam contratar um serviço geralmente têm que seguire esses passos:
 - Entrar em contato com o prestador do serviço pessoalmente via Whatsapp ou qualquer outro meio;
@@ -52,7 +56,9 @@ Atualmente, toda a operação de serviços relacionada a pets, principalmente o 
 
 Esse ciclo gera repetitividade e retarda o serviço. Fazendo com que muitas vezes o cliente nem consiga concluir o agendamento do serviço ou se depare com preços inacessíveis e acabe desistindo, gerando prejuízo de tempo tanto para o tutor, tanto para o prestador.
 
-Em outra análise, vimos a falta de um software que registre o serviço do início ao fim. Como o processo de contratação dos serviços geralmente é muito pessoal, deixando muitas vezes o cliente inseguro em relação ao serviço. Em uma contratação de serviço, como o próprio nome retrata, existe um contrato, mas levando em conta que o pet não consegue dar um feedback de como foi o serviço, não se tem um registro legal das ações ocorridas durante o serviço.
+Em outra análise, a empresa viu a falta de um software que registre o serviço do início ao fim. Como o processo de contratação dos serviços geralmente é muito pessoal, deixando muitas vezes o cliente inseguro em relação ao serviço. Em uma contratação de serviço, como o próprio nome retrata, existe um contrato, mas levando em conta que o pet não consegue dar um feedback de como foi o serviço, não se tem um registro legal das ações ocorridas durante o serviço.
+
+**A Solução**
 
 Com isso a Dog - Dog Service irá oferecer tudo isso em um único software. O site da Doggo terá como objetivo a união de vários prestadores de serviço para que os clientes possam contratá-los, incluindo Dog Walkers, Dog Sitters e prestadores de Dog Boarding. Para a solução dos problemas citados, o sistema contará com:
 - Preço de cada prestador claro e direto;
