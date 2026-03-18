@@ -16,8 +16,8 @@ Equipe:
 Links do projeto:
 (*Coloque aqui os links para a documentação do projeto e os repositórios e plubicação do backend e frontend.*)
 -   [Documentação (esse documento)](github.com/marcoandre/pi-modelo)
--   Backend: [Repositório](github.com/marcoandre/pi-backend) e [Publicação](https://pi-backend.herokuapp.com/)
--   Frontend: [Repositório](github.com/marcoandre/pi-frontend) e [Publicação](https://pi-frontend.herokuapp.com/)
+-   Backend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-backend) e [Publicação]()
+-   Frontend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-frontend) e [Publicação]()
 
 # 1. Desenvolvimento
 
@@ -70,6 +70,12 @@ Com isso a Dog - Dog Service irá oferecer tudo isso em um único software. O si
 - Acesso ao histórico de serviços para cliente e prestador de maneira clara e segura.
 
 # 3. Descrição da proposta
+
+A proposta do software **Doggo - Dog Service** vem com intuito de otimizar e segurar o processo de contratação de serviços relacionados ao mercado de pet. 
+
+**Para o cliente**, o sistema contará com procura de serviços para cães (Dog Service) em áreas próximas, localização em tempo real (para Dog Walking) e diário do serviço, cadastro de pets para uma busca de prestadores mais específica, preço dos serviços de maneira transparente, agenda dos prestadores disponível para solicitar serviço, serviço de passeios rápidos (para Dog Walking) e contratção direta pelo sistema (sem aplicativos de terceiros), incluindo pagamento, reembolso caso serviço não tenha sido realizado ou caso ocorra algum problema (casos específicos).
+
+**Para o prestador**, o sistema contará com integração com agenda personalizada, preços customizáveis, solicitações de agendamento dos clientes, chat em grupo de fidelidade, pagamento antecipado do serviço
 
 Após entender o problema, proponha uma solução que será útil nos aspectos de dificuldade encontrados. Assim, aqui você deverá **explicar de maneira resumida, e preferencialmente mais textual, como o software funcionará**. Pense nesse texto como uma **introdução ao seu cliente** do que você pretende fazer por ele, para que ele confirme se realmente está dentro do desejado e permita sua continuidade.
 
