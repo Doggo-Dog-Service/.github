@@ -73,23 +73,32 @@ Com isso a Dog - Dog Service irá oferecer tudo isso em um único software. O si
 
 A proposta do software **Doggo - Dog Service** vem com intuito de otimizar e segurar o processo de contratação de serviços relacionados ao mercado de pet. 
 
-**Para o cliente**, o sistema contará com procura de serviços para cães (Dog Service) em áreas próximas, localização em tempo real (para Dog Walking) e diário do serviço, cadastro de pets para uma busca de prestadores mais específica, preço dos serviços de maneira transparente, agenda dos prestadores disponível para solicitar serviço, serviço de passeios rápidos (para Dog Walking) e contratção direta pelo sistema (sem aplicativos de terceiros), incluindo pagamento, reembolso caso serviço não tenha sido realizado ou caso ocorra algum problema (casos específicos).
+**Para o cliente**, o sistema contará com:
+- **Procura de serviços em áreas próximas**: parte da aplicação que permitirá filtrar os serviços pela área mais próxima do cliente; 
+- **Localização em tempo real**: para o serviço de Dog Walking, o cliente conseguirá acessar a localização em tempo real de onde o pretador está;
+- **Diário de serviço**: será uma aba do sistema onde o cliente conseguirá ver como o pet estava no momento do serviço e acessar tudo o que foi feito com o pet (responsabilidade do prestador em atualizar esses dados);
+- **Rota de passeios registrada**: após um passeio (Dog Walking), ficará registrado cada local em que o passeador esteve, formando um desenho da rota no mapa;
+- **Cadastro de pets**: para uma busca de prestadores mais específica de acordo com os pets adicionados pelo cliente;
+- **Preço dos serviços de maneira transparente**: No perfil de cada prestador, ficará exibido os preços e pacotes de promoção de seus serviços;
+- **Agenda dos prestadores disponível para solicitar serviço**: o cliente poderá solicitar agendamento clicando nos horários vagos disponibilizados pelo prestador;
+- **Serviço de passeios rápidos (para Dog Walking)**: o cliente poderá chamar um passeador que estará em modo de passeio rápido, priorizando os que estiverem mais próximos;
+- **Contratção direta pelo sistema (sem aplicativos de terceiros)**: todo o processo de contratação e pagamento dos serviços ocorrerá pela plataforma, sem a necessidade de apps terceiros;
+- **Reembolso**: caso o serviço não tenha sido realizado ou o prestador violar algum termo de política de uso, o cliente poderá abrir um processo de reembolso pelo serviço.
 
-**Para o prestador**, o sistema contará com integração com agenda personalizada, preços customizáveis, solicitações de agendamento dos clientes, chat em grupo de fidelidade, pagamento antecipado do serviço
+**Para o prestador**, o sistema contará com:
+- **Diário de serviço**: o prestador terá a responsabilidade de atualizar o diário do serviço, colocando fotos do pet ou imagens dele.
+- **Preços customizáveis**: o prestador poderá modificar quando quiser o seu perfil com preços e pacotes promocionais; 
+- **Integração com agenda personalizada**: o prestador terá acesso à uma agenda semanal que irá personalizar com os dias e horários disponíveis para trabalho, quando algum cliente for marcado, esse calendário será atualizado com esse serviço agendado; 
+- **Solicitações de agendamento dos clientes**: Quando um cliente solicitar um serviço pela agenda, virá uma soliciação para aceitar esse serviço; 
+- **Grupos de fidelidade**: o prestador terá direito a um grupo de fidelidade dos clientes, onde o horário semanal terá prioridade para eles, além de poder lançar pacotes promocionais exclusivos; 
+- **Pagamento antecipado do serviço**: o prestador receberá o dinheiro antes do serviço ser executado para evitar golpes;
 
-Após entender o problema, proponha uma solução que será útil nos aspectos de dificuldade encontrados. Assim, aqui você deverá **explicar de maneira resumida, e preferencialmente mais textual, como o software funcionará**. Pense nesse texto como uma **introdução ao seu cliente** do que você pretende fazer por ele, para que ele confirme se realmente está dentro do desejado e permita sua continuidade.
-
-**Alguns pontos importantes a se destacar são:**
-
--   **Qual o foco de ação do software** relacionado com os problemas levantados na análise da situação-problema. O que realmente o software vai fazer. Por exemplo, o foco de ação do Gmail é permitir o envio e recebimento de e-mails.
--   **Os níveis de usuário do sistema**. Somente o gestor tem acesso? E os funcionários? Talvez seja para ambos, ou para funcionários de cargos
-    diferentes, etc.
--   **O que poderá ser feito no software**.Apenas o principal, sem pensar em telas ou detalhes específicos, pois isso será feito em outro momento.
--   **Se houver mais de um nível de usuário**, ressaltar as diferenças entre eles na descrição da proposta.
-
-Tenha em mente que essa é uma etapa relativamente breve. Não é necessário um texto gigantesco, apenas dar uma noção do funcionamento do sistema. Mais adiante
-precisaremos ser bem detalhistas, todavia agora a intenção é apenas fazer algo que permita ao cliente nos dizer se estamos no caminho certo.
-
+O software contará com quatro tipos de usuário, sendo eles:
+- Cliente (cliente);
+- Walker (prestador);
+- Sitter (prestador);
+- Boarding (prestador);
+  
 # 4. Modelagem de Dados
 
 (*Nessa parte a equipe deve descrever a modelagem de dados que será implementada no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
