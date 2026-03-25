@@ -361,7 +361,103 @@ repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve
 - **RN09 – Relatório de Fluxo de Caixa:** O relatório de fluxo de caixa será permitido somente para o administrador.
 
 # 6. Requisitos funcionais
-(*Nessa parte a equipe deve descrever os requisitos funcionais que serão implementados no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
+
+**6.1 Entradas**
+
+**RF 01 - Cadastro de Usuários:** Permitir o cadastro de novos usuários no sistema, possibilitando o acesso à plataforma DOGGO, seja como cliente ou prestador de serviços.
+
+- Dados necessários: username, email, password, cpf, full_name, phone.
+- Usuários: visitantes.
+
+**R.F. 02 - Cadastro de Papéis de Usuário:** Permitir a definição de papéis (roles) para os usuários, como cliente ou prestador, possibilitando controle de permissões no sistema.
+
+- Dados necessários: name.
+- Usuários: administrador.
+
+**R.F. 03 - Associação de Usuário a Papel:** Permitir vincular um usuário a um papel, definindo seu nível de acesso dentro da plataforma.
+
+- Dados necessários: user_id, role_id.
+- Usuários: administrador.
+
+**R.F. 04 - Cadastro de Pets:** Permitir que usuários registrem seus pets para utilização nos serviços oferecidos na plataforma.
+
+- Dados necessários: user_id, name, breed, size, weight, temperament, special_needs, vaccination_status.
+- Usuários: cliente.
+
+**R.F. 05 - Cadastro de Tipos de Serviço:** Permitir o cadastro dos tipos de serviços disponíveis na plataforma (ex: passeio, hospedagem).
+
+- Dados necessários: name, description.
+- Usuários: adminitrador.
+
+**R.F. 06 - Cadastro de Serviços do Prestador:** Permitir que prestadores cadastrem os serviços que oferecem, incluindo preços e área de atuação.
+
+- Dados necessários: user_id, service_type_id, price_per_hour, price_per_day, activity_area_km, description.
+- Usuários: prestador.
+
+**6.2 Processos**
+
+**R.F. 07 - Autenticação de Usuário:** Permitir que o usuário acesse o sistema mediante validação de suas credenciais, garantindo segurança no acesso.
+
+- Dados necessários: email, password.
+- Usuários: todos os usuários.
+
+**R.F. 08 - Agendamento de Serviço:** Permitir que um cliente solicite um serviço com base na disponibilidade de um prestador, vinculando pet, horário e tipo de serviço.
+
+- Dados necessários: pet_id, user_id, provider_service_id, service_type_id, start_datetime, end_datetime.
+- Usuários: cliente.
+
+**R.F. 09 - Cálculo do Valor do Serviço:** Calcular automaticamente o valor total do serviço com base no tempo contratado e nos preços definidos pelo prestador.
+
+- Dados necessários: price_per_hour, price_per_day, start_datetime, end_datetime.
+- Usuários: nenhum (sistema).
+
+**R.F. 10 - Processamento de Pagamento:** Registrar e processar o pagamento de um serviço, garantindo que a transação seja associada ao serviço contratado.
+
+- Dados necessários: service_id, amount, payment_method, transaction_id.
+- Usuários: cliente.
+
+**R.F. 11 - Cálculo da Taxa da Plataforma:** Calcular a taxa da plataforma com base em um percentual definido sobre o valor do serviço pago.
+
+- Dados necessários: payment_id, amount, percentage.
+- Usuários: nenhum (sistema).
+
+**R.F. 12 - Geração de Repasse ao Prestador:** Gerar o valor a ser repassado ao prestador, descontando a taxa da plataforma.
+
+- Dados necessários: service_id, provider_service_id, amount.
+- Usuários: nenhum (sistema).
+
+**R.F. 13 - Atualização de Status do Serviço:** Permitir a atualização do status do serviço (pendente, confirmado, concluído, cancelado).
+
+- Dados necessários: service_id, status.
+- Usuários: cliente, prestador.
+
+**6.3 Sáidas**
+
+**R.F. 14 - Listagem de Serviços Disponíveis:** Exibir os serviços disponíveis na plataforma, permitindo que clientes visualizem opções de prestadores.
+
+- Dados necessários: service_type, price, description, provider.
+- Usuários: cliente.
+
+**R.F. 15 - Histórico de Serviços do Usuário:** Exibir o histórico de serviços realizados por um usuário, incluindo detalhes de cada serviço.
+
+- Dados necessários: service_id, pet, provider, status, total_price, datas.
+- Usuários: cliente, prestador.
+
+**R.F. 16 - Relatório de Pagamentos:** Permitir a visualização dos pagamentos realizados na plataforma, incluindo status e valores.
+
+- Dados necessários: payment_id, service_id, amount, status, payment_method.
+- Usuários: administrador, cliente e prestador.
+
+**R.F. 17 - Relatório de Taxas da Plataforma** Exibir as taxas geradas pela plataforma sobre os serviços realizados.
+
+- Dados necessários: platform_fee_id, service_id, amount, percentage.
+- Usuários: administrador.
+
+**R.F. 18 - Relatório de Repasses aos Prestadores** Exibir os valores repassados aos prestadores, incluindo status e datas de pagamento.
+
+- Dados necessários: payout_id, service_id, amount, status, paid_at.
+- Usuários: administrador, prestador.
+
 
 **6.1 O que são requisitos funcionais?**
 
