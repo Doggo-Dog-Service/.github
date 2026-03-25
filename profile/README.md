@@ -101,19 +101,204 @@ O software contará com quatro tipos de usuário, sendo eles:
   
 # 4. Modelagem de Dados
 
-(*Nessa parte a equipe deve descrever a modelagem de dados que será implementada no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
+**4.1 Diagrama**
 
-Defina as entidades e relacionamentos que farão parte do sistema. Desenhe o diagrama de entidade-relacionamento (DER) e descreva as entidades e relacionamentos que farão parte do sistema.
+![Diagrama de Caso de Uso](/images/imagem-modelagem-dados.png "Diagrama de Caso de Uso")
 
+**4.2 Entidades do Sistema**
 
+O sistema é composto pelas seguintes entidades principais:
 
-# 4. Regras de negócio
+**Usuário (user)**
+
+Representa qualquer pessoa no sistema (cliente ou prestador).
+
+**Atributos**
+
+- id (PK)
+- usename
+- email
+- password
+- cpf
+- full_name
+- phone
+
+---
+
+**Papel (role)**
+
+Define o tipo de usuário (ex: cliente, prestador, admin).
+
+**Atributos**
+
+- id (PK)
+- name
+
+---
+
+**Usuário-papel (user_has_role)**
+
+Tabela associativa entre usuário e papel.
+
+**Atributos**
+
+- id (PK)
+- user_id (FK)
+- role_id (FK)
+
+**Relacionamento:**
+
+- Usuário - Papel (N:M)
+
+---
+
+**Pet (pet)**
+
+Representa os pets cadastrados pelos usuários.
+
+**Atributos**
+
+- id (PK)
+- user_id (FK)
+- name
+- breed
+- size
+- weight
+- temperament
+- special_needs
+- vaccination_status
+- created_at
+
+**Relacionamento:**
+
+- Usuário - Pet (1:N)
+
+---
+
+**Tipo de Serviço (service_type)**
+
+Define os tipos de serviços disponíveis (passeio, cuidador, hospedagem).
+
+**Atributos**
+
+- id (PK)
+- name
+- description
+
+---
+
+**Serviço do Prestador (provider_service)**
+
+Serviços oferecidos por um prestador.
+
+**Atributos:**
+
+- id (PK)
+- service_type_id (FK)
+- user_id (FK)
+- price_per_hour
+- price_per_day
+- activity_area_km
+- description
+- created_at
+
+**Relacionamentos:**
+
+- Usuário (prestador) - Serviço (1:N)
+- Tipo de Serviço - Serviço do Prestador (1:N)
+
+---
+
+**Serviço (service)**
+
+Representa um agendamento realizado.
+
+**Atributos:**
+
+- id (PK)
+- pet_id (FK)
+- user_id (FK) → cliente
+- provider_service_id (FK)
+- service_type_id (FK)
+- start_datetime
+- end_datetime
+- status
+- total_price
+- created_at
+
+**Relacionamentos:**
+
+- Serviço - Pet (1:N)
+- Serviço - Usuário (cliente) (1:N)
+- Serviço - Pet (1:N)
+
+---
+
+**Pagamento (payment)**
+
+Registra o pagamento de um serviço.
+
+**Atributos:**
+
+- id (PK)
+- service_id (FK)
+- amount
+- status
+- payment_method
+- transaction_id
+- paid_at
+- created_at
+
+**Relacionamento:**
+
+- Serviço - Pagamento (1:1)
+
+---
+
+**Taxa da Plataforma (platform_fee)**
+
+Define a comissão da plataforma sobre o pagamento.
+
+- id (PK)
+- payment_id (FK)
+- amount
+- percentage
+- created_at
+
+**Relacionamentos:**
+
+- Pagamento - Taxa da Plataforma (1:1)
+
+---
+
+**Repasse (payout)**
+
+Valor transferido ao prestador.
+
+**Atributos:**
+
+- id (PK)
+- service_id (FK)
+- provider_service_id (FK)
+- amount
+- status
+- payment_method
+- payment_id
+- scheduled_at
+- paid_at
+- created_at
+
+**Relacionamento:**
+
+- Serviço - Repasse (1:1)
+
+# 5. Regras de negócio
 (*Nessa parte a equipe deve descrever as regras de negócio que serão implementadas no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
 
 As **Regras de negócio** são orientações e restrições que ajudam a regular as operações de uma empresa. **Regras** foram criadas para **colaborar com o funcionamento**, seja da sociedade, de uma escola, de um jogo, etc. Não seria diferente nas organizações. Vamos abordar melhor sobre esse assunto. Entender o que são as regras de negócio, sua importância, como são aplicadas e
 automatizadas na gestão por processo.
 
-**4.1 O que são regras de negócio?**
+**5.1 O que são regras de negócio?**
 
 Um negócio funciona por processos que, por sua vez, são formados por atividades relacionadas entre si.
 
@@ -123,7 +308,7 @@ Dentro desses processos, existem regras que devem ser seguidas durante a execuç
 
 Podemos dizer que as regras de negócio são **limites impostos às operações**, de forma que elas sigam corretamente em direção às políticas e aos objetivos da instituição.
 
-**4.2 Regras para a criação de regras de negócio**
+**5.2 Regras para a criação de regras de negócio**
 
 De maneira geral, as regras de negócio devem:
 - Ser **simples**, isto é,  ter apenas uma função.
@@ -134,13 +319,13 @@ De maneira geral, as regras de negócio devem:
 - Refletir a **política** e os **valores** da organização.
 - Ser **inteligíveis** para os colaboradores e envolvidos no processo.
 
-**4.3 Por que ter regras de negócio?**
+**5.3 Por que ter regras de negócio?**
 
 - **Padronização de processos:** padronizam os processos e auxiliam a fluirem de forma mais eficiente e automatizada.
 - **Controle de processos:** auxiliam no controle de processos, pois falhas são identificadas e corrigidas mais rapidamente.
 - **Tomada de decisão:** auxiliam na tomada de decisão e no cumprimento de estratégias pré-estabelecidas.
 
-**4.4 Exemplos de regras de negócio**
+**5.4 Exemplos de regras de negócio**
 
 - Em um controle de qualidade de granja, pode-se dizer que a cada 100 ovos impróprios para consumo, o lote será descartado.
 - Em um banco, clientes com faturamento mensal de mais de R$ 25 mil e CPF sem restrições, serão atendidos pelo gerente Premium pessoa física.
@@ -150,7 +335,7 @@ De maneira geral, as regras de negócio devem:
 - Em um processo de compras, o fornecedor só pode ser contratado se tiver nota fiscal, certificado de qualidade e preço abaixo de R$ 10,00 por unidade.
 - Em um processo de logística, o pedido só pode ser enviado se o cliente tiver mais de 18 anos, endereço de entrega no mesmo estado e não tiver restrições no CPF.
 
-**4.5 Como escrever regras de negócio?**
+**5.5 Como escrever regras de negócio?**
 
 - Número identificador.
 - Nome da regra.
@@ -161,7 +346,7 @@ controle.
 - Dependências: insira o identificador das regras atreladas, às quais a regra em questão depende.
 - Uma descrição detalhada para compreensão da regra.
 
-**4.6 Exemplos de regras de negócio com formatação**
+**5.6 Exemplos de regras de negócio com formatação**
 
 - **RN01 – Criação Comanda:** Para iniciar um atendimento no balcão, é necessário primeiro abrir uma nova comanda.
 - **RN02 – Inserir Produtos Comanda:** Para inserir um produto na comanda, é necessário que o produto esteja cadastrado no sistema e que a quantia comprada seja acima de zero.
@@ -175,10 +360,10 @@ repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve
 - **RN08 – Abertura de OS:** Com o atendimento aprovado pelo cliente, a atendente deverá inserir os dados do cliente e do orçamento em um novo documento, para registros internos, realizando a abertura da OS.
 - **RN09 – Relatório de Fluxo de Caixa:** O relatório de fluxo de caixa será permitido somente para o administrador.
 
-# 5. Requisitos funcionais
+# 6. Requisitos funcionais
 (*Nessa parte a equipe deve descrever os requisitos funcionais que serão implementados no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
 
-**5.1 O que são requisitos funcionais?**
+**6.1 O que são requisitos funcionais?**
 
 Um requisito funcional é uma declaração de como um sistema deve se comportar. Define o que o sistema deve fazer para atender às necessidades ou expectativas do usuário. Os requisitos funcionais podem ser pensados ​como recursos que o usuário detecta.
 
@@ -188,7 +373,7 @@ Os requisitos funcionais são compostos de duas partes:
 - A **função** é o que o sistema **faz**. Por exemplo: *“calcular imposto sobre vendas”*.
 - O **comportamento** é **como** o sistema faz. Por exemplo: *“O sistema deve calcular o imposto sobre vendas multiplicando o preço de compra pela alíquota do imposto.”*.
 
-**5.2 Tipos de requisitos funcionais**
+**6.2 Tipos de requisitos funcionais**
 
 Os requisitos funcionais podem ser classificados em:
 
@@ -202,7 +387,7 @@ Os requisitos funcionais podem ser classificados em:
 - Gestão de dados
 - Requisitos Legais e Regulamentares
 
-**5.3 Diretrizes para a elaboração de requisitos funcionais**
+**6.3 Diretrizes para a elaboração de requisitos funcionais**
 
 Cada requisito funcional precisa ser:
 
@@ -213,7 +398,7 @@ Cada requisito funcional precisa ser:
 - **Limitado** no tempo para que você possa
 acompanhar o progresso
 
-**5.4 Estrutura do requisito funcional**
+**6.4 Estrutura do requisito funcional**
 
 Um requisito funcional deve ser estruturado da seguinte forma:
 
@@ -222,7 +407,7 @@ requisito.
   - **Dados necessários:** dado 1, dado 2, dado 3.
   - **Usuários:** todos os níveis de usuário.
 
-**5.4.1 Nome do requisito funcional**
+**6.4.1 Nome do requisito funcional**
 
 **R.F. 99 - Nome do requisito funcional:** é o nome da função que o software terá. Sugerimos, por padronização, que tenha o prefixo R.F. (requisito funcional)
 seguida da numeração, para melhor identificação do requisito, acrescido do formato *“Substantivo + onde será feita a ação”*.
@@ -233,7 +418,7 @@ Por exemplo:
 
 Deixe para definir as numerações ao final, tendo em vista que mudanças podem acontecer e não é prático sempre ficar reajustando os números.
 
-**5.4.2 Descrição do requisito funcional**
+**6.4.2 Descrição do requisito funcional**
 
 **Descrição do requisito:** local para descrever a função deste requisito.
 
@@ -241,7 +426,7 @@ Sempre se preocupe em esclarecer dois pontos: o que o requisito faz e o motivo d
 Um exemplo é um Registro de funcionários, que talvez não exista hoje mas para o software é necessário para viabilizar uma autenticação de
 usuários. Outro exemplo é algo que faz sentido apenas para um  software, como a própria autenticação.
 
-**5.4.3 Dados necessários**
+**6.4.3 Dados necessários**
 
 **Dados necessários:** aqui devem ser colocados os nomes dos dados que serão usados para que esse requisito atenda o que precisa fazer.
 
@@ -249,18 +434,18 @@ Nas **entradas** e **processos**, em geral, são os dados que serão salvos (sej
 
 Já nas **saídas**, são os dados que serão exibidos em tela (sejam eles vindos diretamente do banco, ou criados por um cálculo ou busca na sessão do usuário).
 
-**5.4.4 Usuários**
+**6.4.4 Usuários**
 
 **Usuários:** aqui devem ser colocados os nomes dos usuários que terão acesso a esse requisito, conforme enumerados na descrição do sistema.
 
-**5.4.5 Exemplo de requisito funcional**
+**6.4.5 Exemplo de requisito funcional**
 
 - **R.F. 01 - Autenticação de usuário:** tem como propósito autenticar o acesso ao sistema, verificando se o usuário pode acessá-lo e, caso possa, o direcionando
 para a página principal de seu perfil de acesso.
   - **Dados necessários:** login, senha, nível de permissão.
   - **Usuários:** todos os níveis de usuário.
 
-**5.4.6 Organização dos requisitos funcionais**
+**6.4.6 Organização dos requisitos funcionais**
 
 As funcionalidades devem ser organizadas em: entradas, processos e saídas.
 
@@ -288,7 +473,7 @@ negócio, mas sem intenção de alterá-los, apenas permitindo sua visualizaçã
 Todos esses podem ser consideradas saídas, pois usam informações de entradas e processos de modo a mostrar informações relevantes ao
 negócio. Lembre-se que, diferentemente das entradas e processos, aqui os dados necessários devem ser os que a tela exibirá.
 
-**5.4.7 Exemplo de organização dos requisitos funcionais**
+**6.4.7 Exemplo de organização dos requisitos funcionais**
 
 (_A seguir, um exemplo de organização de requisitos funcionais, com entradas, processos e saídas._)
 
@@ -322,13 +507,13 @@ negócio. Lembre-se que, diferentemente das entradas e processos, aqui os dados 
   - **Dados necessários:** dado 1, dado 2, dado 3.
   - **Usuários:** todos os níveis de usuário.
 
-# 6. Requisitos não funcionais
+# 7. Requisitos não funcionais
 
 Requisitos não funcionais (**RNFs**) são as restrições impostas a um sistema que definem seus atributos de qualidade.
 
 Eles geralmente são indicados por adjetivos como **segurança**, **desempenho** e **escalabilidade**.
 
-**6.1 Categorias de requisitos não funcionais**
+**7.1 Categorias de requisitos não funcionais**
 
 Os requisitos não funcionais são importantes porque ajudam a garantir que o sistema atenda às necessidades do usuário.
 
@@ -347,7 +532,7 @@ Os requisitos não funcionais podem ser divididos em duas categorias:
 2. **Restrições:** Estas são as limitações impostas ao sistema.
 Exemplos de restrições incluem tempo, recursos e ambiente.
 
-**6.2 Vantagens dos requisitos não funcionais**
+**7.2 Vantagens dos requisitos não funcionais**
 
 Os requisitos não funcionais ajudam a garantir que o sistema seja:
 
@@ -356,7 +541,7 @@ Os requisitos não funcionais ajudam a garantir que o sistema seja:
 3. Escalável, seguro e confiável.
 4. Fácil de usar e manter.
 
-**6.3 Exemplos de requisitos não funcionais**
+**7.3 Exemplos de requisitos não funcionais**
 
 Aqui estão alguns exemplos de requisitos não funcionais:
 1. **Segurança**: O sistema deve ser protegido contra acesso não
@@ -376,7 +561,7 @@ do usuário.
 10. **Conformidade**: O sistema deve cumprir todas as leis e regulamentos
 aplicáveis.
 
-**6.4 Exemplo de organização dos requisitos não funcionais**
+**7.4 Exemplo de organização dos requisitos não funcionais**
 
 (_A seguir, um exemplo de organização de requisitos não funcionais._)
 
@@ -412,16 +597,16 @@ aplicáveis.
 - **R.N.F. 08 - Web Server:** O servidor web utilizado será o Apache Tomcat, nas versões mais atualizadas.
 - **R.N.F. 09 - Níveis de segurança:** O software terá diferentes tipos de acesso para cada tipo de login, tendo as permissões ideais a função de cada um.
 
-**6.6 Conclusão**
+**7.6 Conclusão**
 
 Requisitos não funcionais são essenciais para qualquer sistema. Eles ajudam a garantir que o sistema atenda às necessidades do usuário e seja capaz de funcionar como pretendido.
 
 É importante considerar cuidadosamente todos os requisitos não funcionais antes de projetar e desenvolver um sistema.
 Eles ajudam a garantir que o sistema atenda às necessidades do usuário e seja capaz de funcionar como pretendido.
 
-# 7. Diagrama de Caso de Uso
+# 8. Diagrama de Caso de Uso
 
-**7.1 Introdução**
+**8.1 Introdução**
 
 O diagrama de caso de uso é uma ferramenta de modelagem que descreve o comportamento de um sistema a partir da perspectiva do usuário. Ele é usado para capturar os requisitos funcionais de um sistema.
 
@@ -438,9 +623,9 @@ O diagrama de caso de uso é uma ferramenta de modelagem que descreve o comporta
 - O conjunto de casos de uso deve ser capaz de comunicar a **funcionalidade** e o **comportamento** do sistema para o cliente.
 - Descrevem **o que** o sistema faz, mas **não** especificam **como** isso deve ser feito.
 
-**7.2 Elementos do diagrama de caso de uso**
+**8.2 Elementos do diagrama de caso de uso**
 
-7.2.1 **Atores**
+8.2.1 **Atores**
 
 - Representam os papéis desempenhados por **elementos externos** ao sistema
   - Ex: humano (usuário), dispositivo de hardware ou outro sistema (cliente)
@@ -461,7 +646,7 @@ Notação:
 **E o cliente?**
 - Não é ator pois ele **não interage** com o sistema!
 
-**7.2.2 Casos de uso**
+**8.2.2 Casos de uso**
 
 - Representam **funcionalidades** do sistema (requisitos funcionais).
 - São iniciados por **atores** ou por outros casos de uso.
@@ -481,9 +666,9 @@ Notação:
 
 ![Identificando os casos de uso](img/dcu_identificando_casos_de_uso.png "Identificando os casos de uso")
 
-**7.2.3 Relacionamentos**
+**8.2.3 Relacionamentos**
 
-**7.2.3.1 Relacionamento de associação**
+**8.2.3.1 Relacionamento de associação**
 
 - Indica que um ator **participa** de um caso de uso, ou seja, o ator **interage** (comunica-se) com o caso de uso.
 - É representado por uma **linha sólida**.
@@ -504,7 +689,7 @@ Notação:
 
 ![Identificando os relacionamentos de associação](img/dcu_identificando_relacionamentos_de_associacao.png "Identificando os relacionamentos de associação")
 
-**7.2.3.2 Relacionamento de generalização/especialização**
+**8.2.3.2 Relacionamento de generalização/especialização**
 
 **Generalização de atores**
 
@@ -557,7 +742,7 @@ acréscimo de 20%. As vendas a prazo podem ser pagas no **cartão** ou no **bole
 
 ![Identificando mais relacionamentos de generalização/especialização de casos de uso](img/dcu_identificando_mais_relacionamentos_de_generalizacao_especializacao_de_casos_de_uso.png "Identificando mais relacionamentos de generalização/especialização de casos de uso")
 
-**7.2.3.3 Relacionamento de dependência**
+**8.2.3.3 Relacionamento de dependência**
 
 **Extensão**
 
@@ -603,7 +788,7 @@ acesso ao sistema.
 
 ![Identificando os relacionamentos de dependência (inclusão)](img/dcu_identificando_relacionamentos_de_dependencia_inclusao.png "Identificando os relacionamentos de dependência (inclusão)")
 
-**7.2.4 Fronteira do sistema**
+**8.2.4 Fronteira do sistema**
 
 - Elemento opcional (mas essencial para um bom
 entendimento).
