@@ -187,7 +187,7 @@ Define os tipos de serviços disponíveis (passeio, cuidador, hospedagem).
 
 ---
 
-**Serviço do Prestador (provider_service)**
+**Prestador do Serviço (provider_service)**
 
 Serviços oferecidos por um prestador.
 
