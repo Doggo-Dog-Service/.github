@@ -364,196 +364,121 @@ repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve
 
 **6.1 Entradas**
 
-**RF 01 - Cadastro de Usuários:** Permitir o cadastro de novos usuários no sistema, possibilitando o acesso à plataforma DOGGO, seja como cliente ou prestador de serviços.
+**RF01 - Cadastro de Usuários:** Permitir o cadastro de novos usuários no sistema, possibilitando o acesso à plataforma DOGGO, seja como cliente ou prestador de serviços.
 
 - Dados necessários: username, email, password, cpf, full_name, phone.
 - Usuários: visitantes.
 
-**R.F. 02 - Cadastro de Papéis de Usuário:** Permitir a definição de papéis (roles) para os usuários, como cliente ou prestador, possibilitando controle de permissões no sistema.
+**RF02 - Cadastro de Papéis de Usuário:** Permitir a definição de papéis (roles) para os usuários, como cliente ou prestador, possibilitando controle de permissões no sistema.
 
 - Dados necessários: name.
 - Usuários: administrador.
 
-**R.F. 03 - Associação de Usuário a Papel:** Permitir vincular um usuário a um papel, definindo seu nível de acesso dentro da plataforma.
+**RF03 - Associação de Usuário a Papel:** Permitir vincular um usuário a um papel, definindo seu nível de acesso dentro da plataforma.
 
 - Dados necessários: user_id, role_id.
 - Usuários: administrador.
 
-**R.F. 04 - Cadastro de Pets:** Permitir que usuários registrem seus pets para utilização nos serviços oferecidos na plataforma.
+**RF04 - Cadastro de Pets:** Permitir que usuários registrem seus pets para utilização nos serviços oferecidos na plataforma.
 
 - Dados necessários: user_id, name, breed, size, weight, temperament, special_needs, vaccination_status.
 - Usuários: cliente.
 
-**R.F. 05 - Cadastro de Tipos de Serviço:** Permitir o cadastro dos tipos de serviços disponíveis na plataforma (ex: passeio, hospedagem).
+**RF05 - Cadastro de Tipos de Serviço:** Permitir o cadastro dos tipos de serviços disponíveis na plataforma (ex: passeio, hospedagem).
 
 - Dados necessários: name, description.
 - Usuários: adminitrador.
 
-**R.F. 06 - Cadastro de Serviços do Prestador:** Permitir que prestadores cadastrem os serviços que oferecem, incluindo preços e área de atuação.
+**RF06 - Cadastro de Serviços do Prestador:** Permitir que prestadores cadastrem os serviços que oferecem, incluindo preços e área de atuação.
 
 - Dados necessários: user_id, service_type_id, price_per_hour, price_per_day, activity_area_km, description.
 - Usuários: prestador.
 
 **6.2 Processos**
 
-**R.F. 07 - Autenticação de Usuário:** Permitir que o usuário acesse o sistema mediante validação de suas credenciais, garantindo segurança no acesso.
+**RF07 - Autenticação de Usuário:** Permitir que o usuário acesse o sistema mediante validação de suas credenciais, garantindo segurança no acesso.
 
 - Dados necessários: email, password.
 - Usuários: todos os usuários.
 
-**R.F. 08 - Agendamento de Serviço:** Permitir que um cliente solicite um serviço com base na disponibilidade de um prestador, vinculando pet, horário e tipo de serviço.
+**RF08 - Agendamento de Serviço:** Permitir que um cliente solicite um serviço com base na disponibilidade de um prestador, vinculando pet, horário e tipo de serviço.
 
 - Dados necessários: pet_id, user_id, provider_service_id, service_type_id, start_datetime, end_datetime.
 - Usuários: cliente.
 
-**R.F. 09 - Cálculo do Valor do Serviço:** Calcular automaticamente o valor total do serviço com base no tempo contratado e nos preços definidos pelo prestador.
+**RF09 - Cálculo do Valor do Serviço:** Calcular automaticamente o valor total do serviço com base no tempo contratado e nos preços definidos pelo prestador.
 
 - Dados necessários: price_per_hour, price_per_day, start_datetime, end_datetime.
 - Usuários: nenhum (sistema).
 
-**R.F. 10 - Processamento de Pagamento:** Registrar e processar o pagamento de um serviço, garantindo que a transação seja associada ao serviço contratado.
+**RF10 - Processamento de Pagamento:** Registrar e processar o pagamento de um serviço, garantindo que a transação seja associada ao serviço contratado.
 
 - Dados necessários: service_id, amount, payment_method, transaction_id.
 - Usuários: cliente.
 
-**R.F. 11 - Cálculo da Taxa da Plataforma:** Calcular a taxa da plataforma com base em um percentual definido sobre o valor do serviço pago.
+**RF11 - Cálculo da Taxa da Plataforma:** Calcular a taxa da plataforma com base em um percentual definido sobre o valor do serviço pago.
 
 - Dados necessários: payment_id, amount, percentage.
 - Usuários: nenhum (sistema).
 
-**R.F. 12 - Geração de Repasse ao Prestador:** Gerar o valor a ser repassado ao prestador, descontando a taxa da plataforma.
+**RF12 - Geração de Repasse ao Prestador:** Gerar o valor a ser repassado ao prestador, descontando a taxa da plataforma.
 
 - Dados necessários: service_id, provider_service_id, amount.
 - Usuários: nenhum (sistema).
 
-**R.F. 13 - Atualização de Status do Serviço:** Permitir a atualização do status do serviço (pendente, confirmado, concluído, cancelado).
+**RF13 - Atualização de Status do Serviço:** Permitir a atualização do status do serviço (pendente, confirmado, concluído, cancelado).
 
 - Dados necessários: service_id, status.
 - Usuários: cliente, prestador.
 
 **6.3 Sáidas**
 
-**R.F. 14 - Listagem de Serviços Disponíveis:** Exibir os serviços disponíveis na plataforma, permitindo que clientes visualizem opções de prestadores.
+**RF14 - Listagem de Serviços Disponíveis:** Exibir os serviços disponíveis na plataforma, permitindo que clientes visualizem opções de prestadores.
 
 - Dados necessários: service_type, price, description, provider.
 - Usuários: cliente.
 
-**R.F. 15 - Histórico de Serviços do Usuário:** Exibir o histórico de serviços realizados por um usuário, incluindo detalhes de cada serviço.
+**RF15 - Histórico de Serviços do Usuário:** Exibir o histórico de serviços realizados por um usuário, incluindo detalhes de cada serviço.
 
 - Dados necessários: service_id, pet, provider, status, total_price, datas.
 - Usuários: cliente, prestador.
 
-**R.F. 16 - Relatório de Pagamentos:** Permitir a visualização dos pagamentos realizados na plataforma, incluindo status e valores.
+**RF16 - Relatório de Pagamentos:** Permitir a visualização dos pagamentos realizados na plataforma, incluindo status e valores.
 
 - Dados necessários: payment_id, service_id, amount, status, payment_method.
 - Usuários: administrador, cliente e prestador.
 
-**R.F. 17 - Relatório de Taxas da Plataforma** Exibir as taxas geradas pela plataforma sobre os serviços realizados.
+**RF17 - Relatório de Taxas da Plataforma:** Exibir as taxas geradas pela plataforma sobre os serviços realizados.
 
 - Dados necessários: platform_fee_id, service_id, amount, percentage.
 - Usuários: administrador.
 
-**R.F. 18 - Relatório de Repasses aos Prestadores** Exibir os valores repassados aos prestadores, incluindo status e datas de pagamento.
+**RF18 - Relatório de Repasses aos Prestadores:** Exibir os valores repassados aos prestadores, incluindo status e datas de pagamento.
 
 - Dados necessários: payout_id, service_id, amount, status, paid_at.
 - Usuários: administrador, prestador.
 
 # 7. Requisitos não funcionais
 
-Requisitos não funcionais (**RNFs**) são as restrições impostas a um sistema que definem seus atributos de qualidade.
+**RNF01 - Navegadores homologados:** O sistema deve ser compatível com os navegadores Google Chrome, Mozilla Firefox e Microsoft Edge em suas versões mais recentes.
 
-Eles geralmente são indicados por adjetivos como **segurança**, **desempenho** e **escalabilidade**.
+**RNF02 - Responsividade:** O sistema deve possuir interface responsiva, usando a arquitetura mobile first e adaptando-se para telas de computadores
 
-**7.1 Categorias de requisitos não funcionais**
+**RNF03 - Usabilidade:** O sistema deve conter uma interface intuitiva e direta, permitindo ações mais fáceis.
 
-Os requisitos não funcionais são importantes porque ajudam a garantir que o sistema atenda às necessidades do usuário.
+**RNF04 - Autenticação:** O sistema deve exigir a autenticação dos usuários para acessar as funcionalidades.
 
-Os Requisitos Não Funcionais explicam as limitações e restrições do sistema a ser projetado. **Esses requisitos não têm nenhum
-impacto na funcionalidade do aplicativo.** Além disso, existe uma prática comum de subclassificar os requisitos não funcionais em várias categorias:
+**RNF05 - Criptografia de dados:** O sistema deve armazenar as senhas do usuário de maneira criptografada.
 
-- Interface de Usuário
-- Confiabilidade
-- Segurança
-- Atuação
-- Manutenção
+**RNF06 - Grupos de acesso:** O sistema deve conter controles de acesso  baseados em papéis que limitarão as funcionalidades do usuário no sistema.
 
-Os requisitos não funcionais podem ser divididos em duas categorias:
+**RNF07 - Integridade dos dados:** O sistema deve garantir consistência dos dados, especialmente de operações financeiras, como pagamentos e repasses de valor.
 
-1. **Atributos de qualidade:** Estas são as características do sistema que determinam sua qualidade geral. Exemplos de atributos de qualidade incluem segurança, desempenho e usabilidade.
-2. **Restrições:** Estas são as limitações impostas ao sistema.
-Exemplos de restrições incluem tempo, recursos e ambiente.
+**RNF08 - Arquitetura do sistema:** O sistema deve ser desenvolvido na arquitetura baseada em API REST.
 
-**7.2 Vantagens dos requisitos não funcionais**
+**RNF09 - Tecnologias:** O sistema deve ser desenvolvido utilizando: Django com DRF, Vue js, Tailwindcss e MySql.
 
-Os requisitos não funcionais ajudam a garantir que o sistema seja:
-
-1. Adaptado às necessidades do usuário.
-2. Adequado à finalidade.
-3. Escalável, seguro e confiável.
-4. Fácil de usar e manter.
-
-**7.3 Exemplos de requisitos não funcionais**
-
-Aqui estão alguns exemplos de requisitos não funcionais:
-1. **Segurança**: O sistema deve ser protegido contra acesso não
-autorizado.
-2. **Atuação**: O sistema deve ser capaz de lidar com o número necessário
-de usuários sem qualquer degradação no desempenho.
-3. **Escalabilidade**: O sistema deve ser capaz de aumentar ou diminuir
-conforme necessário.
-4. **Disponibilidade**: O sistema deve estar disponível quando necessário.
-5. **Manutenção**: O sistema deve ser fácil de manter e atualizar.
-6. **Portabilidade**: O sistema deve ser capaz de rodar em diferentes
-plataformas com alterações mínimas.
-7. **Confiabilidade**: O sistema deve ser confiável e atender aos requisitos
-do usuário.
-8. **Usabilidade**: O sistema deve ser fácil de usar e entender.
-9. **Compatibilidade**: O sistema deve ser compatível com outros sistemas.
-10. **Conformidade**: O sistema deve cumprir todas as leis e regulamentos
-aplicáveis.
-
-**7.4 Exemplo de organização dos requisitos não funcionais**
-
-(_A seguir, um exemplo de organização de requisitos não funcionais._)
-
-**Requisitos não funcionais:**
-
-- **R.N.F. 01 - Nome do requisito não funcional:** descrição do requisito.
-- **R.N.F. 02 - Nome do requisito não funcional:** descrição do requisito.
-
-**Exemplos de requisitos não funcionais:**
-
-
-**Sistema de Padaria**:
-- **R.N.F. 01 - Navegador homologado:** O sistema deverá ser homologado para os navegadores Google Chrome e Mozilla Firefox.
-- **R.N.F. 02 - Processador:** É recomendado para o sistema  no mínimo um processador Intel i3, similar ou superior a geração 7100 ou AMD Ryzen 3 da geração similar ou superior ao 3100, para que o servidor funcione em sua melhor performance.
-- **R.N.F. 03 - Memória RAM:** é recomendável que o sistema possua no mínimo 2GB de RAM para melhor performance.
-- **R.N.F. 04 - Arquitetura:** Será utilizada a arquitetiura MVC para o desenvolvimento do sistema, com uso de uma API REST para comunicação com o banco de dados.
-- **R.N.F. 05 - Banco de dados:** O sistema será implementado com o banco de dados MySQL.
-- **R.N.F. 06 - Conexão com banco de dados:** Para conexão com o banco de dados, o sistema utilizará a ferramenta de MySQL Connector.
-- **R.N.F. 07 - Implementação:** O sistema deverá ser desenvolvido com linguagem Python, Javascript, HTML5, CSS3 e SQL.
-- **R.N.F. 08 - Segurança:** Ficará a critério do responsável do estabelecimento a segurança dos acessos ao sistema, tendo consciência das pessoas que possua permissão para acesso.
-- **R.N.F. 09 - Ambiente de Desenvolvimento Integrado (IDE):** Para criação do sistema, será utilizado o editor de texto Visual Studio Code.
-- **R.N.F. 10 - Disponibilidade:** O sistema irá atender 99% do tempo de uso, somente ocorreria problemas de cadastro, remoção, inserção ou alteração em casos de falta de rede ou energia.
-- **R.N.F. 11 - Legais:** O sistema deve atender às exigências da LGPD (Leis Gerais da Proteção de Dados).
-
-**Sistema de Ordem de Serviço:**
-- **R.N.F. 01 - Navegadores homologados:** o sistema deverá ser homologado para os navegadores Google Chrome e Mozilla Firefox.
-- **R.N.F. 02 - Tecnologia Front-end:** Para a exibição em front-end, o software utilizará o CSS3 e o HTML5, além do framework Vue.js.
-- **R.N.F. 03- Tecnologia Back-end:** O software será desenvolvido pela linguagem de programação Python, com o framework Django e a API REST com Django REST Framework.
-- **R.N.F. 04 - Interoperabilidade:** O banco de dados será o MySQL, com a linguagem SQL de banco, sendo todo produzido através do MySQL Workbench .
-- **R.N.F. 05 - Forma de uso do software:** O sistema por fazer parte de um ambiente interno, provavelmente será utilizado de acordo com as horas de trabalho da empresa, mas estará ativo 24 horas por dia em 7 dias por semana.
-- **R.N.F. 06 - Desempenho:** Para a utilização correta e com uma qualidade e eficiência melhor, é recomendado que se use o SO mais atualizado, com recursos de hardware equivalentes a um processador intel i3 5°Gen ou semelhante, e 8GB de memória RAM, assim como os navegadores homologados.
-- **R.N.F. 07- Autenticação:** Para realizar o acesso ao sistema é necessário ter um usuário de autenticação criado pelo administrador, além da possibilidade de solicitar um envio de redefinição de senha.
-- **R.N.F. 08 - Web Server:** O servidor web utilizado será o Apache Tomcat, nas versões mais atualizadas.
-- **R.N.F. 09 - Níveis de segurança:** O software terá diferentes tipos de acesso para cada tipo de login, tendo as permissões ideais a função de cada um.
-
-**7.6 Conclusão**
-
-Requisitos não funcionais são essenciais para qualquer sistema. Eles ajudam a garantir que o sistema atenda às necessidades do usuário e seja capaz de funcionar como pretendido.
-
-É importante considerar cuidadosamente todos os requisitos não funcionais antes de projetar e desenvolver um sistema.
-Eles ajudam a garantir que o sistema atenda às necessidades do usuário e seja capaz de funcionar como pretendido.
+**RNF10 - Manutenção:** O sistema deve ser desenvolvido em um padrão de pastas e arquivos para facilitar manutenção e escalabilidade.
 
 # 8. Diagrama de Caso de Uso
 
