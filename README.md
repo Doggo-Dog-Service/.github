@@ -293,174 +293,134 @@ Valor transferido ao prestador.
 - Serviço - Repasse (1:1)
 
 # 5. Regras de negócio
-(*Nessa parte a equipe deve descrever as regras de negócio que serão implementadas no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
 
-As **Regras de negócio** são orientações e restrições que ajudam a regular as operações de uma empresa. **Regras** foram criadas para **colaborar com o funcionamento**, seja da sociedade, de uma escola, de um jogo, etc. Não seria diferente nas organizações. Vamos abordar melhor sobre esse assunto. Entender o que são as regras de negócio, sua importância, como são aplicadas e
-automatizadas na gestão por processo.
+**RN01 - Cadastro de Usuário:** O sistema deve bloquear o registro de usuários com mesmo email, cpf ou telefone.
 
-**5.1 O que são regras de negócio?**
+**RN02 - Associação Obrigatória de Perfil**: O sistema deve cadastrar sempre o usuário em algum perfil: cliente ou provedor.
 
-Um negócio funciona por processos que, por sua vez, são formados por atividades relacionadas entre si.
+**RN03 - Cadastro de Pet Vinculado:** O sistema deve cadastrar sempre um pet associado à um dono, esse dono somente poderá ser um cliente.
 
-As funções das áreas de compras, estoque, logística, finanças, vendas e marketing, por exemplo, compõem um processo de fornecimento de um produto ao cliente.
+**RN04 - Agendamentos com Dados Obrigatórios:** O sistema deve exigir para agendar: um pet e um serviço cadastrado pelo provedor.
 
-Dentro desses processos, existem regras que devem ser seguidas durante a execução das atividades, que ajudam a definir **COMO** as operações devem ser realizadas e gerenciadas, **POR QUEM**, **QUANDO**, **ONDE** e **POR QUÊ**.
+**RN05 - Validação de Datas do Serviço:** O sistema deve verificar se o horário e data de término de um serviço é posterior à data de início.
 
-Podemos dizer que as regras de negócio são **limites impostos às operações**, de forma que elas sigam corretamente em direção às políticas e aos objetivos da instituição.
+**RN06 - Cálculo do Valor dos Serviços:** O sistema deve calcular automaticamente o valor de um serviço com base na duração e nos preços definidos pelo prestador.
 
-**5.2 Regras para a criação de regras de negócio**
+**RN07 - Pagamento Vinculado ao Serviço:** O sistema deve registrar um pagamento obrigatóriamente associado à um serviço.
 
-De maneira geral, as regras de negócio devem:
-- Ser **simples**, isto é,  ter apenas uma função.
-- Ser **completas**, com início, meio e fim.
-- Ser possíveis de **mensurar** e **rastrear**.
-- Estar em consonância com a **legislação**.
-- Estar **atualizadas** e sempre **revisadas**.
-- Refletir a **política** e os **valores** da organização.
-- Ser **inteligíveis** para os colaboradores e envolvidos no processo.
+**RN08 - Confirmação do Pagamento:** O sistema deve concluir o agendamento somente após o pagamento do serviço.
 
-**5.3 Por que ter regras de negócio?**
+**RN09 - Geração Automática da Taxa da Plataforma:** O sistema deve gerar automáticamente uma taxa baseada num percentual definido.
 
-- **Padronização de processos:** padronizam os processos e auxiliam a fluirem de forma mais eficiente e automatizada.
-- **Controle de processos:** auxiliam no controle de processos, pois falhas são identificadas e corrigidas mais rapidamente.
-- **Tomada de decisão:** auxiliam na tomada de decisão e no cumprimento de estratégias pré-estabelecidas.
+**RN10 - Cálculo do Repasse ao Prestador:** O sistema deve repassar o valor do serviço com o desconto da taxa da plataforma automaticamente.
 
-**5.4 Exemplos de regras de negócio**
+**RN11 - Controle de Status de Serviço:** O sistema deve seguir apenas os seguintes status: pendente, confirmado, em andamento, concluído e cancelado.
 
-- Em um controle de qualidade de granja, pode-se dizer que a cada 100 ovos impróprios para consumo, o lote será descartado.
-- Em um banco, clientes com faturamento mensal de mais de R$ 25 mil e CPF sem restrições, serão atendidos pelo gerente Premium pessoa física.
-- Para conclusão de licitações, devem ser feitos três orçamentos e o vencedor será sempre o de menor preço final.
-- Em um processo de seleção de RH, o candidato só pode ser aprovado se tiver mais de 5 anos de experiência na área, diploma de pós-graduação, espanhol fluente e pretensão salarial abaixo de R$ 8.000,00.
-- Em um processo de vendas, o vendedor só pode vender um produto se o cliente tiver mais de 18 anos, renda familiar acima de R$ 5.000,00 e não tiver restrições no CPF.
-- Em um processo de compras, o fornecedor só pode ser contratado se tiver nota fiscal, certificado de qualidade e preço abaixo de R$ 10,00 por unidade.
-- Em um processo de logística, o pedido só pode ser enviado se o cliente tiver mais de 18 anos, endereço de entrega no mesmo estado e não tiver restrições no CPF.
+**RN12 - Restrição de Alteração pós Pagamento:** O sistema deve restringir alterações no serviço após pagamento.
 
-**5.5 Como escrever regras de negócio?**
-
-- Número identificador.
-- Nome da regra.
-- Data de criação e data da última alteração para comparações e
-controle.
-- Nome dos Autores das versões.
-- Número da versão (1, 2 etc).
-- Dependências: insira o identificador das regras atreladas, às quais a regra em questão depende.
-- Uma descrição detalhada para compreensão da regra.
-
-**5.6 Exemplos de regras de negócio com formatação**
-
-- **RN01 – Criação Comanda:** Para iniciar um atendimento no balcão, é necessário primeiro abrir uma nova comanda.
-- **RN02 – Inserir Produtos Comanda:** Para inserir um produto na comanda, é necessário que o produto esteja cadastrado no sistema e que a quantia comprada seja acima de zero.
-- **RN03 – Cadastro de Leitores:** Os leitores precisam fazer o cadastro para realizar o empréstimo.
-- **RN04 – Realizar Empréstimo:** Para realizar o empréstimo, apenas leitores com cadastro e nenhuma multa em aberto.
-- **RN05 – Registro de Empréstimo:** O gerente deve possuir acesso aos registros de empréstimos.
-- **RN06 – Pagamento de Multa:** O leitor que passar de 15 dias com o livro deverá pagar a multa de um real por dia de atraso.
-- **RN07 – Impressão de Orçamento:** Com as informações do
-orçamento registradas, a atendente deve imprimir o orçamento e
-repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve solicitar a sua assinatura para aprovar a execução do serviço.
-- **RN08 – Abertura de OS:** Com o atendimento aprovado pelo cliente, a atendente deverá inserir os dados do cliente e do orçamento em um novo documento, para registros internos, realizando a abertura da OS.
-- **RN09 – Relatório de Fluxo de Caixa:** O relatório de fluxo de caixa será permitido somente para o administrador.
+**RN13 - Integridade do Histórico:** O sistema deve manter os serviços, pagamentos e repasses de dinheiro. Esses dados nunca devem ser excluídos permanentemente.
 
 # 6. Requisitos funcionais
 
 **6.1 Entradas**
 
-**RF01 - Cadastro de Usuários:** Permitir o cadastro de novos usuários no sistema, possibilitando o acesso à plataforma DOGGO, seja como cliente ou prestador de serviços.
+**RF01 - Cadastro de Usuários:** O sistema deve permitir o cadastro de novos usuários no sistema, possibilitando o acesso à plataforma DOGGO, seja como cliente ou prestador de serviços.
 
 - Dados necessários: username, email, password, cpf, full_name, phone.
 - Usuários: visitantes.
 
-**RF02 - Cadastro de Papéis de Usuário:** Permitir a definição de papéis (roles) para os usuários, como cliente ou prestador, possibilitando controle de permissões no sistema.
+**RF02 - Cadastro de Papéis de Usuário:** O sistema deve permitir a definição de papéis (roles) para os usuários, como cliente ou prestador, possibilitando controle de permissões no sistema.
 
 - Dados necessários: name.
 - Usuários: administrador.
 
-**RF03 - Associação de Usuário a Papel:** Permitir vincular um usuário a um papel, definindo seu nível de acesso dentro da plataforma.
+**RF03 - Associação de Usuário a Papel:** O sistema deve permitir vincular um usuário a um papel, definindo seu nível de acesso dentro da plataforma.
 
 - Dados necessários: user_id, role_id.
 - Usuários: administrador.
 
-**RF04 - Cadastro de Pets:** Permitir que usuários registrem seus pets para utilização nos serviços oferecidos na plataforma.
+**RF04 - Cadastro de Pets:** O sistema deve permitir que usuários registrem seus pets para utilização nos serviços oferecidos na plataforma.
 
 - Dados necessários: user_id, name, breed, size, weight, temperament, special_needs, vaccination_status.
 - Usuários: cliente.
 
-**RF05 - Cadastro de Tipos de Serviço:** Permitir o cadastro dos tipos de serviços disponíveis na plataforma (ex: passeio, hospedagem).
+**RF05 - Cadastro de Tipos de Serviço:** O sistema deve permitir o cadastro dos tipos de serviços disponíveis na plataforma (ex: passeio, hospedagem).
 
 - Dados necessários: name, description.
 - Usuários: adminitrador.
 
-**RF06 - Cadastro de Serviços do Prestador:** Permitir que prestadores cadastrem os serviços que oferecem, incluindo preços e área de atuação.
+**RF06 - Cadastro de Serviços do Prestador:** O sistema deve permitir que prestadores cadastrem os serviços que oferecem, incluindo preços e área de atuação.
 
 - Dados necessários: user_id, service_type_id, price_per_hour, price_per_day, activity_area_km, description.
 - Usuários: prestador.
 
 **6.2 Processos**
 
-**RF07 - Autenticação de Usuário:** Permitir que o usuário acesse o sistema mediante validação de suas credenciais, garantindo segurança no acesso.
+**RF07 - Autenticação de Usuário:** O sistema deve permitir que o usuário acesse o sistema mediante validação de suas credenciais, garantindo segurança no acesso.
 
 - Dados necessários: email, password.
 - Usuários: todos os usuários.
 
-**RF08 - Agendamento de Serviço:** Permitir que um cliente solicite um serviço com base na disponibilidade de um prestador, vinculando pet, horário e tipo de serviço.
+**RF08 - Agendamento de Serviço:** O sistema deve permitir que um cliente solicite um serviço com base na disponibilidade de um prestador, vinculando pet, horário e tipo de serviço.
 
 - Dados necessários: pet_id, user_id, provider_service_id, service_type_id, start_datetime, end_datetime.
 - Usuários: cliente.
 
-**RF09 - Cálculo do Valor do Serviço:** Calcular automaticamente o valor total do serviço com base no tempo contratado e nos preços definidos pelo prestador.
+**RF09 - Cálculo do Valor do Serviço:** O sistema deve calcular automaticamente o valor total do serviço com base no tempo contratado e nos preços definidos pelo prestador.
 
 - Dados necessários: price_per_hour, price_per_day, start_datetime, end_datetime.
 - Usuários: nenhum (sistema).
 
-**RF10 - Processamento de Pagamento:** Registrar e processar o pagamento de um serviço, garantindo que a transação seja associada ao serviço contratado.
+**RF10 - Processamento de Pagamento:** O sistema deve registrar e processar o pagamento de um serviço, garantindo que a transação seja associada ao serviço contratado.
 
 - Dados necessários: service_id, amount, payment_method, transaction_id.
 - Usuários: cliente.
 
-**RF11 - Cálculo da Taxa da Plataforma:** Calcular a taxa da plataforma com base em um percentual definido sobre o valor do serviço pago.
+**RF11 - Cálculo da Taxa da Plataforma:** O sistema deve calcular a taxa da plataforma com base em um percentual definido sobre o valor do serviço pago.
 
 - Dados necessários: payment_id, amount, percentage.
 - Usuários: nenhum (sistema).
 
-**RF12 - Geração de Repasse ao Prestador:** Gerar o valor a ser repassado ao prestador, descontando a taxa da plataforma.
+**RF12 - Geração de Repasse ao Prestador:** O sistema deve gerar o valor a ser repassado ao prestador, descontando a taxa da plataforma.
 
 - Dados necessários: service_id, provider_service_id, amount.
 - Usuários: nenhum (sistema).
 
-**RF13 - Atualização de Status do Serviço:** Permitir a atualização do status do serviço (pendente, confirmado, concluído, cancelado).
+**RF13 - Atualização de Status do Serviço:** O sistema deve permitir a atualização do status do serviço (pendente, confirmado, concluído, cancelado).
 
 - Dados necessários: service_id, status.
 - Usuários: cliente, prestador.
 
 **6.3 Sáidas**
 
-**RF14 - Listagem de Serviços Disponíveis:** Exibir os serviços disponíveis na plataforma, permitindo que clientes visualizem opções de prestadores.
+**RF14 - Listagem de Serviços Disponíveis:** O sistema deve exibir os serviços disponíveis na plataforma, permitindo que clientes visualizem opções de prestadores.
 
 - Dados necessários: service_type, price, description, provider.
 - Usuários: cliente.
 
-**RF15 - Histórico de Serviços do Usuário:** Exibir o histórico de serviços realizados por um usuário, incluindo detalhes de cada serviço.
+**RF15 - Histórico de Serviços do Usuário:** O sistema deve exibir o histórico de serviços realizados por um usuário, incluindo detalhes de cada serviço.
 
 - Dados necessários: service_id, pet, provider, status, total_price, datas.
 - Usuários: cliente, prestador.
 
-**RF16 - Relatório de Pagamentos:** Permitir a visualização dos pagamentos realizados na plataforma, incluindo status e valores.
+**RF16 - Relatório de Pagamentos:** O sistema deve permitir a visualização dos pagamentos realizados na plataforma, incluindo status e valores.
 
 - Dados necessários: payment_id, service_id, amount, status, payment_method.
 - Usuários: administrador, cliente e prestador.
 
-**RF17 - Relatório de Taxas da Plataforma:** Exibir as taxas geradas pela plataforma sobre os serviços realizados.
+**RF17 - Relatório de Taxas da Plataforma:** O sistema deve exibir as taxas geradas pela plataforma sobre os serviços realizados.
 
 - Dados necessários: platform_fee_id, service_id, amount, percentage.
 - Usuários: administrador.
 
-**RF18 - Relatório de Repasses aos Prestadores:** Exibir os valores repassados aos prestadores, incluindo status e datas de pagamento.
+**RF18 - Relatório de Repasses aos Prestadores:** O sistema deve exibir os valores repassados aos prestadores, incluindo status e datas de pagamento.
 
 - Dados necessários: payout_id, service_id, amount, status, paid_at.
 - Usuários: administrador, prestador.
 
 # 7. Requisitos não funcionais
 
-**RNF01 - Navegadores homologados:** O sistema deve ser compatível com os navegadores Google Chrome, Mozilla Firefox e Microsoft Edge em suas versões mais recentes.
+**RNF01 - Navegadores Homologados:** O sistema deve ser compatível com os navegadores Google Chrome, Mozilla Firefox e Microsoft Edge em suas versões mais recentes.
 
 **RNF02 - Responsividade:** O sistema deve possuir interface responsiva, usando a arquitetura mobile first e adaptando-se para telas de computadores
 
@@ -468,13 +428,13 @@ repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve
 
 **RNF04 - Autenticação:** O sistema deve exigir a autenticação dos usuários para acessar as funcionalidades.
 
-**RNF05 - Criptografia de dados:** O sistema deve armazenar as senhas do usuário de maneira criptografada.
+**RNF05 - Criptografia de Dados:** O sistema deve armazenar as senhas do usuário de maneira criptografada.
 
-**RNF06 - Grupos de acesso:** O sistema deve conter controles de acesso  baseados em papéis que limitarão as funcionalidades do usuário no sistema.
+**RNF06 - Grupos de Acesso:** O sistema deve conter controles de acesso  baseados em papéis que limitarão as funcionalidades do usuário no sistema.
 
-**RNF07 - Integridade dos dados:** O sistema deve garantir consistência dos dados, especialmente de operações financeiras, como pagamentos e repasses de valor.
+**RNF07 - Integridade dos Dados:** O sistema deve garantir consistência dos dados, especialmente de operações financeiras, como pagamentos e repasses de valor.
 
-**RNF08 - Arquitetura do sistema:** O sistema deve ser desenvolvido na arquitetura baseada em API REST.
+**RNF08 - Arquitetura do Sistema:** O sistema deve ser desenvolvido na arquitetura baseada em API REST.
 
 **RNF09 - Tecnologias:** O sistema deve ser desenvolvido utilizando: Django com DRF, Vue js, Tailwindcss e MySql.
 
