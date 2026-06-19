@@ -16,8 +16,8 @@ Equipe:
 Links do projeto:
 (*Coloque aqui os links para a documentação do projeto e os repositórios e plubicação do backend e frontend.*)
 -   [Documentação (esse documento)](github.com/marcoandre/pi-modelo)
--   Backend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-backend) e [Publicação]()
--   Frontend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-frontend) e [Publicação]()
+-   Backend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-backend) e [Publicação](https://doggo-backend.class.fabricadesoftware.ifc.edu.br/)
+-   Frontend: [Repositório](https://github.com/Doggo-Dog-Service/doggo-frontend) e [Publicação](https://doggo-frontend.vercel.app/)
 
 # 1. Desenvolvimento
 
